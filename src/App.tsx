@@ -31,9 +31,10 @@ const formatCurrency = (value, currency = "BRL") => {
   );
 };
 
-const formatDate = (dateString) => {
+const formatDate = (dateString: any) => {
   if (!dateString) return "-";
-  const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+  // Adicionamos "as any" para que o TypeScript pare de reclamar do formato da data
+  const options: any = { day: "2-digit", month: "2-digit", year: "numeric" };
   return new Date(dateString).toLocaleDateString("pt-BR", options);
 };
 
